@@ -24,6 +24,7 @@ module.exports = {
         project: './tsconfig.json',
     },
     rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         // Include .prettierrc.js rules
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
         // We will use TypeScript's types for component props instead

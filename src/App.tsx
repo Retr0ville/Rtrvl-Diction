@@ -5,9 +5,9 @@ import Header from './components/Header';
 import './App.css';
 import InfoBody from './components/Infobody';
 
-const Home = () => {
+const App = () => {
     return (
-        <div className="">
+        <div className="font-monaco">
             <div className="bg-color-alt w-100 py-3 d-flex align-items-center justify-content-center">
                 <Header />
             </div>
@@ -16,4 +16,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default App;
