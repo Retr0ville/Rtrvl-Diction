@@ -115,3 +115,7 @@ code {
   .hover-shadow-bot:hover {
      box-shadow: 0 .5rem .25rem -0.25rem rgba(0, 0, 0, 0.25)!important;
   }
+
+  .pointer {
+    cursor: pointer;
+  }

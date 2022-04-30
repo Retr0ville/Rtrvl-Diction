@@ -5,9 +5,11 @@ const define = async (word: string) => {
     const response = await axios.get(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
     );
-    return response.data;
+    return response.data[0];
   } catch (error) {
-    return [];
+    return {
+      error: "Definition not found, try another word",
+    };
   }
 }
 

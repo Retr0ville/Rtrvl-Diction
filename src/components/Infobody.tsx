@@ -30,16 +30,23 @@ const InfoWrapper = styled.div`
 `;
 
 
-const InfoBody = () => {
+const InfoBody = ({randWord, def}) => {
   return (
       <InfoWrapper className="body w-100 d-flex justify-content-center overflow-hidden hover-shadow-bot ">
           <div className="d-flex inv mw-1100 ">
-            <div className="info position-relative w-100 mx-0 p-5 shadow-sm mx-lg-5 bg-color-secondary">
+            <div className="info d-flex justify-content-center position-relative w-100 mx-0 p-5 shadow-sm mx-lg-5 bg-color-secondary">
               <div className="left corner position-absolute" />
               <div className="right corner position-absolute"/>
+
+              <div className="mt-3 ms-5">
+              <h3 className="fw-bolder">
+                {randWord.word && `${randWord.word}:`}
+                {def.error ? def.error : def.word}
+              </h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea, illum sint repellat, maiores modi perferendis dolorem dignissimos molestiae aperiam laudantium facilis necessitatibus a sunt 
+                {randWord.definition}
               </p>
+              </div>
             </div>
           </div>
       </InfoWrapper>
