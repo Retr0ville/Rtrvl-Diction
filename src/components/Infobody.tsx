@@ -94,7 +94,7 @@ const InfoBody = ({ randWord, def, handleSubmit }) => {
                           {def.phonetic}
                         </small>
                       </span>
-                      <FcSpeaker  onClick={playAudio}/>
+                      <FcSpeaker className="pointer"  onClick={playAudio}/>
                     </div>
                     <div className="meanings">
                       {

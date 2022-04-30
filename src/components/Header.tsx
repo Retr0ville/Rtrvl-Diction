@@ -53,7 +53,6 @@ const SearchWrapper = styled.form`
     border-radius: 999px 0 0 999px;
     height: calc(25.11px + var(--h));
     transition: width .85s ease-out;
-    min-width: 200px !important;
  }
  input.active {
     width: var(--w);
@@ -72,6 +71,9 @@ const SearchWrapper = styled.form`
     margin-block : 0 !important;
     margin-bottom: .5rem !important;
     margin-top: .5rem !important;
+    input {  
+    min-width: 200px !important;
+    }
     input.inactive {
       width:var(--w) !important;
       padding:0.5rem !important;
