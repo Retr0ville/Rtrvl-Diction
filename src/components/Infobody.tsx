@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcSpeaker } from 'react-icons/fc';
 import styled from 'styled-components';
 
@@ -46,6 +46,18 @@ const InfoWrapper = styled.div`
 
 
 const InfoBody = ({ randWord, def, handleSubmit }) => {
+  const [wordSound, setWordSound] = useState<string>('');
+  useEffect(() => {
+    if(def.phonetics) {
+    const sound = def.phonetics[0].audio || '';
+    setWordSound(sound)
+    }
+  }, [def]);
+  const audio = new Audio(wordSound);
+  const playAudio = () => {
+    audio.play();
+  }
+
   return (
     <InfoWrapper className="body w-100 d-flex justify-content-center overflow-hidden hover-shadow-bot ">
       <div className="d-flex inv mw-1100 ">
@@ -82,7 +94,7 @@ const InfoBody = ({ randWord, def, handleSubmit }) => {
                           {def.phonetic}
                         </small>
                       </span>
-                      <FcSpeaker />
+                      <FcSpeaker  onClick={playAudio}/>
                     </div>
                     <div className="meanings">
                       {
@@ -103,10 +115,10 @@ const InfoBody = ({ randWord, def, handleSubmit }) => {
                                         </p>
                                         {defn.example && (
                                           <div className="ms-3 mb-3">
-                                          <h6 className="fw-bolder mb-0">Example:</h6>
-                                          <small className="fw-bold">
-                                            {defn.example}
-                                          </small>
+                                            <h6 className="fw-bolder mb-0">Example:</h6>
+                                            <small className="fw-bold">
+                                              {defn.example}
+                                            </small>
                                           </div>
                                         )}
                                       </li>
@@ -120,7 +132,7 @@ const InfoBody = ({ randWord, def, handleSubmit }) => {
                                   <div className="d-flex flex-wrap">
                                     {meaning.synonyms.map((syn: string) => {
                                       return (
-                                        <div key={syn} className="rounded-infinite bg-color-alt hover-shadow2 pointer px-2 py-1 mx-1 mb-2" onClick={(e)=>handleSubmit(e.currentTarget.innerText)}>
+                                        <div key={syn} className="rounded-infinite bg-color-alt hover-shadow2 pointer px-2 py-1 mx-1 mb-2" onClick={(e) => handleSubmit(e.currentTarget.innerText)}>
                                           {syn}
                                         </div>
                                       )
@@ -134,7 +146,7 @@ const InfoBody = ({ randWord, def, handleSubmit }) => {
                                   <div className="d-flex flex-wrap">
                                     {meaning.antonyms.map((ant: string) => {
                                       return (
-                                        <div key={ant} className="rounded-infinite pointer text-light hover-shadow2 bg-color-alt2 px-2 py-1 mx-1 mb-2" onClick={(e)=>handleSubmit(e.currentTarget.innerText)}>
+                                        <div key={ant} className="rounded-infinite pointer text-light hover-shadow2 bg-color-alt2 px-2 py-1 mx-1 mb-2" onClick={(e) => handleSubmit(e.currentTarget.innerText)}>
                                           {ant}
                                         </div>
                                       )
