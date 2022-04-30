@@ -49,7 +49,7 @@ const InfoWrapper = styled.div`
 const InfoBody = ({ randWord, def, handleSubmit }) => {
   const [wordSound, setWordSound] = useState<string>('');
   useEffect(() => {
-    if(def.phonetics) {
+    if(def.phonetics.length > 0) {
     const sound = def.phonetics[0].audio || '';
     setWordSound(sound)
     }
@@ -95,7 +95,7 @@ const InfoBody = ({ randWord, def, handleSubmit }) => {
                           {def.phonetic}
                         </small>
                       </span>
-                      <FcSpeaker className="pointer"  onClick={playAudio}/>
+                      { (wordSound.length > 0) && ( <FcSpeaker className="pointer"  onClick={playAudio}/> )}
                     </div>
                     <div className="meanings">
                       {
