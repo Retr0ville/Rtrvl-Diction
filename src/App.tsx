@@ -32,10 +32,8 @@ const App = () => {
         getRandomWord();
     }, []);
     useEffect(() => {
-        console.log(randWord);
     }, [randWord]);
     useEffect(() => {
-        console.log(def);
     }, [def]);
     const handleSubmit = async (word: string) => {
         setRandWord({})
