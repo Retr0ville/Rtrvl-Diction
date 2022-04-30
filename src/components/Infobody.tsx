@@ -49,7 +49,7 @@ const InfoWrapper = styled.div`
 const InfoBody = ({ randWord, def, handleSubmit }) => {
   const [wordSound, setWordSound] = useState<string>('');
   useEffect(() => {
-    if(def.phonetics.length > 0) {
+    if(def.phonetics && def.phonetics.length > 0) {
     const sound = def.phonetics[0].audio || '';
     setWordSound(sound)
     }
