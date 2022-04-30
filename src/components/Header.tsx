@@ -20,6 +20,10 @@ const HeaderWrapper = styled.h1`
     transform: scale(1.01);
     box-shadow: rgba(9, 30, 66, .25) 0 1px 1px, rgba(9, 30, 66, .13) 0 0 1px 1px;
   }
+  @media only screen and (max-width: 480px) {
+    margin-block : 0 !important;
+    margin-top: .5rem !important;
+  }
 `;
 const SearchWrapper = styled.form`
   .icon {
@@ -49,6 +53,7 @@ const SearchWrapper = styled.form`
     border-radius: 999px 0 0 999px;
     height: calc(25.11px + var(--h));
     transition: width .85s ease-out;
+    min-width: 200px !important;
  }
  input.active {
     width: var(--w);
@@ -62,6 +67,37 @@ const SearchWrapper = styled.form`
    --h: 1rem;
    .suggest {
     top: calc(1.2rem + var(--h) + var(--h) / 2);
+  }
+  @media only screen and (max-width: 480px) {
+    margin-block : 0 !important;
+    margin-bottom: .5rem !important;
+    margin-top: .5rem !important;
+    input.inactive {
+      width:var(--w) !important;
+      padding:0.5rem !important;
+      padding-right: 3rem !important;
+   }
+   ul {
+     min-width: 120px !important;
+   }
+    // .search {
+    //   display: none !important;
+    // }
+    // .suggest {
+    //   display: none !important;
+    // }
+    // --w: 100%;
+    // flex-wrap: wrap;
+    // .icon:{
+    //   order:1;
+    // }
+    // .search {
+    //   min-width: 290px;
+    //   order:2;
+    //   border-radius: 999px;
+    //   margin:0;
+    //   z-index: 99;
+    // }
   }
 }
 `;
@@ -82,7 +118,7 @@ const Header = ({ handleSubmit }) => {
  
   return (
     <div className="d-flex w-100 mw-1100 rounded-infinite bg-color-secondary hover-shadow mx-3 mx-lg-5">
-      <div className="w-100 mx-4 mx-sm-5 d-flex justify-content-between align-items-center">
+      <div className="break w-100 position-relative mx-4 mx-sm-5 d-flex justify-content-between align-items-center">
         <HeaderWrapper className="d-flex align-items-center justify-content-center text-light bg-color-primary p-2 rounded-infinite my-3 pb-0 fw-bold px-3 shadow-sm font-paq fs-3 fs-sm-1">
           Diction-io
         </HeaderWrapper>

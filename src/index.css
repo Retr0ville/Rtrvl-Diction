@@ -68,6 +68,9 @@ code {
 .bg-color-alt2 {
   background-color : #118ab2;
 }
+.bg-def {
+  background-color: #ffe19b25;
+}
 
  /*radius*/
 .rounded-infinite {
@@ -118,4 +121,8 @@ code {
 
   .pointer {
     cursor: pointer;
+  }
+  .fit-content {
+    width: -moz-fit-content;
+    width: fit-content;
   }

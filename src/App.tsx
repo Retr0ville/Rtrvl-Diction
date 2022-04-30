@@ -38,6 +38,7 @@ const App = () => {
         console.log(def);
     }, [def]);
     const handleSubmit = async (word: string) => {
+        setRandWord({})
         getDef(word);
     };
     
@@ -52,6 +53,7 @@ const App = () => {
             <InfoBody 
                 randWord={randWord}
                 def={def}
+                handleSubmit={handleSubmit}
             />
         </div>
     );
